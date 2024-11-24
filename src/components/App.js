@@ -7,6 +7,7 @@ import Navigation from './Navigation'
 import Info from './Info'
 import Loading from './Loading'
 import Progress from './Progress'
+import Buy from './Buy'
 
 // ABIs
 import TOKEN_ABI from '../abi/Token.json'
@@ -97,8 +98,14 @@ function App() {
         <>
           <p className="text-center">
             <strong>Current Price:</strong> {price} ETH
-            <Progress maxTokens={maxTokens} tokensSold={tokensSold} />
           </p>
+          <Buy
+            provider={provider}
+            price={price}
+            crowdsale={crowdsale}
+            setIsLoading={setIsLoading}
+          />
+          <Progress maxTokens={maxTokens} tokensSold={tokensSold} />
         </>
       )}
       <hr />
